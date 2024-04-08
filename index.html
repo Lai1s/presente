@@ -87,8 +87,9 @@
             <div class="form-group">
                 <input type="password" class="form-control" id="password" name="password" placeholder="Digite a senha">
             </div>
-            <button type="button" onclick="enviarFormulario()">Entrar</button> <!-- Alteração aqui: Adicionando onclick para chamar a função enviarFormulario() -->
-            <p id="mensagemErro" style="color: red;"></p> <!-- Adicionando o elemento para exibir a mensagem de erro -->
+            <button type="button" onclick="enviarFormulario()">Entrar</button>
+            <!-- Exibir mensagem de erro -->
+            <p id="mensagemErro" style="color: red;"></p>
         </form>
     </div>
 
@@ -107,14 +108,15 @@
             formData.append('password', password);
 
             var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'http://127.0.0.1:5000'); // Alteração aqui: Defina a URL do seu endpoint de login no servidor Flask
+            xhr.open('POST', 'http://127.0.0.1:5000'); // Defina a URL do seu endpoint de login no servidor Flask
             xhr.onload = function () {
                 if (xhr.status === 200) {
                     // Sucesso
                     window.location.href = "https://drive.google.com/file/d/1-n2-7RG13HA7ttCVJukD_PpoMDsSRS6n/view?usp=drive";
                 } else {
                     // Erro
-                    document.getElementById('mensagemErro').innerText = 'Email e/ou senha incorretos. Por favor, tente novamente.';
+                    var mensagem = xhr.responseText; // Obter a mensagem de erro do Flask
+                    document.getElementById('mensagemErro').innerText = mensagem;
                 }
             };
             xhr.send(formData);
