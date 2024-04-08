@@ -16,18 +16,12 @@
             <div class="form-group">
                 <input type="password" class="form-control" id="password" name="password" placeholder="Digite a senha">
             </div>
-            <button type="button" onclick="enviarFormulario()">Entrar</button>
+            <button type="submit">Entrar</button>
             <!-- Exibir mensagem de erro -->
             {% if mensagem_erro %}
                 <p style="color: red;">{{ mensagem_erro }}</p>
             {% endif %}
         </form>
     </div>
-
-    <script>
-        function enviarFormulario() {
-            // Seu código JavaScript aqui
-        }
-    </script>
 </body>
 </html>
