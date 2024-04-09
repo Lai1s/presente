@@ -15,7 +15,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh; /* Alterado para min-height para garantir que a altura da tela seja pelo menos 100% da viewport */
+            height: 100vh;
             color: #fff;
             position: relative;
         }
@@ -28,19 +28,19 @@
         }
         .gradient-overlay.left {
             left: 0;
-            width: 30%;
+            width: calc(50% - 175px); /* Ajuste para o ponto onde a imagem começa */
             background: linear-gradient(to right, rgba(255, 64, 129, 0.8), rgba(0, 123, 255, 0.8));
         }
         .gradient-overlay.right {
             right: 0;
-            width: 35%;
+            width: calc(50% - 175px); /* Ajuste para o ponto onde a imagem começa */
             background: linear-gradient(to left, rgba(255, 64, 129, 0.8), rgba(0, 123, 255, 0.8));
         }
         .container {
-            width: 90%; /* Alterado para 90% em telas menores */
-            max-width: 350px; /* Adicionado máximo de 350px */
-            background: linear-gradient(135deg, #7b1fa2, #ff4081);
-            padding: 5%; /* Alterado para 5% */
+            width: 80%;
+            max-width: 350px;
+            background: transparent; /* Tornar o contêiner transparente para ver os gradientes */
+            padding: 5%;
             border-radius: 10px;
             box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
             position: relative;
@@ -48,12 +48,11 @@
         }
         .container h2 {
             text-align: center;
-            margin-bottom: 20px; /* Aumentado o espaço entre o título e os campos */
+            margin-bottom: 20px;
             color: #000;
-            font-size: 24px; /* Diminuído o tamanho da fonte */
         }
         .form-group {
-            margin-bottom: 20px; /* Aumentado o espaço entre os campos */
+            margin-bottom: 20px;
         }
         input.form-control {
             border-radius: 20px;
@@ -79,7 +78,7 @@
         /* Media queries */
         @media (min-width: 768px) {
             .container {
-                width: 60%; /* Reduzindo a largura em telas maiores */
+                width: 60%;
             }
         }
     </style>
