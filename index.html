@@ -15,7 +15,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh; /* Alterado para min-height para garantir que a altura da tela seja pelo menos 100% da viewport */
             color: #fff;
             position: relative;
         }
@@ -37,10 +37,10 @@
             background: linear-gradient(to left, rgba(255, 64, 129, 0.8), rgba(0, 123, 255, 0.8));
         }
         .container {
-            width: 80%; /* Alterado para unidade relativa */
+            width: 90%; /* Alterado para 90% em telas menores */
             max-width: 350px; /* Adicionado máximo de 350px */
             background: linear-gradient(135deg, #7b1fa2, #ff4081);
-            padding: 5%; /* Alterado para unidade relativa */
+            padding: 5%; /* Alterado para 5% */
             border-radius: 10px;
             box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
             position: relative;
@@ -48,24 +48,25 @@
         }
         .container h2 {
             text-align: center;
-            margin-bottom: 5%; /* Alterado para unidade relativa */
+            margin-bottom: 20px; /* Aumentado o espaço entre o título e os campos */
             color: #000;
+            font-size: 24px; /* Diminuído o tamanho da fonte */
         }
         .form-group {
-            margin-bottom: 5%; /* Alterado para unidade relativa */
+            margin-bottom: 20px; /* Aumentado o espaço entre os campos */
         }
         input.form-control {
             border-radius: 20px;
-            padding: 3% 5%; /* Alterado para unidade relativa */
-            font-size: 3vw; /* Adicionado tamanho de fonte responsivo */
+            padding: 12px 20px;
+            font-size: 16px;
             border: 1px solid #ddd;
         }
         button {
             width: 100%;
-            padding: 3% 5%; /* Alterado para unidade relativa */
+            padding: 12px;
             background-color: #007bff;
             color: #fff;
-            font-size: 4vw; /* Adicionado tamanho de fonte responsivo */
+            font-size: 18px;
             border: none;
             border-radius: 20px;
             cursor: pointer;
@@ -76,9 +77,9 @@
         }
 
         /* Media queries */
-        @media (max-width: 768px) {
+        @media (min-width: 768px) {
             .container {
-                width: 90%; /* Alterado para unidade relativa */
+                width: 60%; /* Reduzindo a largura em telas maiores */
             }
         }
     </style>
