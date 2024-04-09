@@ -18,7 +18,10 @@
             align-items: center;
             height: 100vh;
             color: #000;
-            position: relative;
+            position: absolute; /* Posicionamento absoluto */
+            top: 50%; /* Posicionamento vertical no centro */
+            left: 50%; /* Posicionamento horizontal no centro */
+            transform: translate(-50%, -50%); /* Ajuste fino para centralizar perfeitamente */
             width: 350px; /* Largura do contêiner */
             background-color: rgba(255, 255, 255, 0.7); /* Fundo branco semi-transparente */
             padding: 30px; /* Preenchimento interno */
