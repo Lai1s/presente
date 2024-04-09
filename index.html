@@ -27,19 +27,15 @@
             z-index: -1;
         }
         .gradient-overlay.left {
-            left: 0;
-            width: calc(50% - 175px); /* Ajuste para o ponto onde a imagem começa */
-            background: linear-gradient(to right, rgba(255, 64, 129, 0.8), rgba(0, 123, 255, 0.8));
+            display: none; /* Esconder gradientes em dispositivos móveis */
         }
         .gradient-overlay.right {
-            right: 0;
-            width: calc(50% - 175px); /* Ajuste para o ponto onde a imagem começa */
-            background: linear-gradient(to left, rgba(255, 64, 129, 0.8), rgba(0, 123, 255, 0.8));
+            display: none; /* Esconder gradientes em dispositivos móveis */
         }
         .container {
             width: 80%;
             max-width: 350px;
-            background: transparent; /* Tornar o contêiner transparente para ver os gradientes */
+            background: transparent;
             padding: 5%;
             border-radius: 10px;
             box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
@@ -76,9 +72,15 @@
         }
 
         /* Media queries */
-        @media (max-width: 768px) {
+        @media (min-width: 768px) {
             body {
-                background-size: 100% 100vh; /* Ajuste para a imagem preencher toda a tela em dispositivos móveis */
+                background-size: cover; /* Garantir que a imagem de fundo cubra toda a tela em desktops */
+            }
+            .gradient-overlay.left {
+                display: block; /* Mostrar gradientes em desktops */
+            }
+            .gradient-overlay.right {
+                display: block; /* Mostrar gradientes em desktops */
             }
         }
     </style>
