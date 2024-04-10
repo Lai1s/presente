@@ -8,10 +8,10 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-image: url('WhatsApp Image 2024-04-09 at 15.19.32.jpeg'); /* Novo caminho para a imagem */
-            background-size: cover; /* Para garantir que a imagem cubra todo o fundo */
-            background-repeat: no-repeat; /* Para evitar repetição da imagem */
-            background-position: center; /* Para centralizar a imagem */
+            background-image: url('WhatsApp Image 2024-04-09 at 15.19.32.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
             margin: 0;
             padding: 0;
             display: flex;
@@ -23,7 +23,7 @@
         }
         .container {
             width: 350px;
-            background-color: rgba(255, 255, 255, 0.7); /* Adicionado um fundo branco semi-transparente */
+            background-color: rgba(255, 255, 255, 0.7);
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
@@ -71,7 +71,7 @@
                 <input type="password" class="form-control" id="password" name="password" placeholder="Digite a senha">
             </div>
             <button type="button" onclick="enviarFormulario()">Entrar</button>
-            <p id="mensagemErro" style="color: red;">{{ mensagem_erro }}</p> <!-- Adiciona área para exibir mensagem de erro -->
+            <p id="mensagemErro" style="color: red;"></p>
         </form>
     </div>
 
@@ -80,8 +80,8 @@
             var email = document.getElementById('email').value;
             var password = document.getElementById('password').value;
 
-            if (email === '' || password === '') {
-                document.getElementById('mensagemErro').innerText = 'Por favor, preencha todos os campos.';
+            if (password === '') {
+                document.getElementById('mensagemErro').innerText = 'Por favor, digite a senha.';
                 return;
             }
 
