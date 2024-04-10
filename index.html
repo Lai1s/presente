@@ -105,7 +105,7 @@
                 } else {
                     var mensagem = xhr.responseText;
                     document.getElementById('mensagemErro').innerText = mensagem;
-                    // Atualiza a página após 3 segundos
+                    // Atualizar a página após 3 segundos em caso de erro de login
                     setTimeout(function() {
                         location.reload();
                     }, 3000);
