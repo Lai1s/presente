@@ -18,13 +18,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh; /* Altura mínima da tela inteira */
             color: #000;
             position: relative;
         }
         /* Estilo para o container */
         .container {
-            width: 350px;
+            width: 80%; /* Define a largura máxima do container */
+            max-width: 400px; /* Define a largura máxima para dispositivos maiores */
             background-color: rgba(255, 255, 255, 0.7); /* Adiciona um fundo branco semi-transparente */
             padding: 30px;
             border-radius: 10px;
