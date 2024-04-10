@@ -105,6 +105,10 @@
                 } else {
                     var mensagem = xhr.responseText;
                     document.getElementById('mensagemErro').innerText = mensagem;
+                    // Atualiza a página após 3 segundos
+                    setTimeout(function() {
+                        location.reload();
+                    }, 3000);
                 }
             };
             xhr.send(formData);
