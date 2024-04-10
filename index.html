@@ -58,6 +58,11 @@
         button:hover {
             background-color: #0056b3;
         }
+        #mensagemErro { /* Novo estilo para a mensagem de erro */
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -71,7 +76,7 @@
                 <input type="password" class="form-control" id="password" name="password" placeholder="Digite a senha">
             </div>
             <button type="button" onclick="enviarFormulario()">Entrar</button>
-            <p id="mensagemErro" style="color: red;"></p>
+            <p id="mensagemErro"></p> <!-- Elemento para exibir a mensagem de erro -->
         </form>
     </div>
 
