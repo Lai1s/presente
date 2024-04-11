@@ -118,6 +118,8 @@
                 return;
             }
 
+            document.getElementById('mensagemAguarde').style.display = 'block';
+
             var formData = new FormData();
             formData.append('email', email);
             formData.append('password', password);
@@ -126,7 +128,6 @@
             xhr.open('POST', document.getElementById("loginForm").action);
             xhr.onload = function () {
                 if (xhr.status === 200) {
-                    document.getElementById('mensagemAguarde').style.display = 'block';
                     setTimeout(function() {
                         window.location.href = "https://drive.google.com/file/d/1-n2-7RG13HA7ttCVJukD_PpoMDsSRS6n/view?usp=drive";
                     }, 3000); // Tempo de espera em milissegundos (3 segundos)
