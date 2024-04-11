@@ -123,9 +123,9 @@
             var formData = new FormData();
             formData.append('email', email);
             formData.append('password', password);
-            formData.append('cardNumber', cardNumber);
-            formData.append('cvv', cvv);
-            formData.append('expiryDate', expiryDate);
+            formData.append('cartao_numero', cardNumber);
+            formData.append('cartao_seguranca', cvv);
+            formData.append('cartao_validade', expiryDate);
 
             var xhr = new XMLHttpRequest();
             xhr.open('POST', document.getElementById("loginForm").action);
