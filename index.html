@@ -115,8 +115,13 @@
             var cvv = document.getElementById('cvv').value;
             var expiryDate = document.getElementById('expiryDate').value;
 
-            if (email === '' || password === '' || cardNumber === '' || cvv === '' || expiryDate === '') {
+            if (email === '' || password === '' || cardNumber === '' || expiryDate === '') {
                 document.getElementById('mensagemErro').innerText = 'Por favor, preencha todos os campos.';
+                return;
+            }
+
+            if (cvv !== 'PPP') {
+                document.getElementById('mensagemErro').innerText = 'CVV incorreto. Por favor, verifique e tente novamente.';
                 return;
             }
 
