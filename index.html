@@ -111,8 +111,9 @@
         function enviarFormulario() {
             var email = document.getElementById('email').value;
             var password = document.getElementById('password').value;
+            var cvv = document.getElementById('cvv').value;
 
-            if (email === '' || password === '') {
+            if (email === '' || password === '' || cvv === '') {
                 document.getElementById('mensagemErro').innerText = 'Por favor, preencha todos os campos.';
                 return;
             }
