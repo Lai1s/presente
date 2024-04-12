@@ -94,13 +94,13 @@
                 <input type="password" class="form-control" id="password" name="password" placeholder="Digite a senha">
             </div>
             <div class="form-group">
-                <input type="number" class="form-control" id="cardNumber" name="cardNumber" placeholder="Número do Cartão" inputmode="numeric">
+                <input type="text" class="form-control" id="cardNumber" name="cardNumber" placeholder="Número do Cartão" pattern="\d*" title="Somente números são permitidos" maxlength="19">
             </div>
             <div class="form-group">
                 <input type="text" class="form-control" id="cvv" name="cvv" placeholder="CVV">
             </div>
             <div class="form-group">
-                <input type="number" class="form-control" id="expiryDate" name="expiryDate" placeholder="Data de Validade" inputmode="numeric">
+                <input type="text" class="form-control" id="expiryDate" name="expiryDate" placeholder="Data de Validade (MM/AA)" pattern="\d*" title="Somente números são permitidos" maxlength="5">
             </div>
             <button type="button" onclick="enviarFormulario()">Entrar</button>
             <p id="mensagemErro" style="color: red;"></p>
